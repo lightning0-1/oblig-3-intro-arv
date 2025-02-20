@@ -14,25 +14,17 @@ public class WrapLinesTextCommand extends WrapTextCommand {
     if (text.isEmpty()) {
       return "";
     }
+
     String[] lines = text.split("\n", -1); // Include trailing empty strings
     StringBuilder wrappedText = new StringBuilder();
 
-    for (String line : lines) {
-      if (!line.isEmpty()) {
-        wrappedText.append(opening).append(line).append(end).append("\n");
-      } else {
+    for (int i = 0; i < lines.length; i++) {
+      if (!lines[i].isEmpty()) {
+        wrappedText.append(opening).append(lines[i]).append(end);
+      }
+      if (i < lines.length - 1) { // Only append newline if not the last line
         wrappedText.append("\n");
       }
-    }
-
-    // Remove the last newline character if it exists and is not part of the wrapped text
-    if (wrappedText.length() > 0 && wrappedText.charAt(wrappedText.length() - 1) == '\n') {
-      wrappedText.deleteCharAt(wrappedText.length() - 1);
-    }
-
-// Remove the last space character if it exists and is not part of the wrapped text
-    if (wrappedText.length() > 0 && wrappedText.charAt(wrappedText.length() - 1) == ' ') {
-      wrappedText.deleteCharAt(wrappedText.length() - 1);
     }
 
     return wrappedText.toString();
