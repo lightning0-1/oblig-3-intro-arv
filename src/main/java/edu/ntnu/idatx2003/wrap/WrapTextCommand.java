@@ -2,7 +2,7 @@ package edu.ntnu.idatx2003.wrap;
 
 import edu.ntnu.idatx2003.TextCommand;
 
-public abstract class WrapTextCommand implements TextCommand {
+public class WrapTextCommand implements TextCommand {
   protected String opening;
   protected String end;
 
@@ -20,5 +20,7 @@ public abstract class WrapTextCommand implements TextCommand {
   }
 
   @Override
-  public abstract String execute(String text);
+  public String execute(String text) {
+    return opening + text + end;
+  }
 }
