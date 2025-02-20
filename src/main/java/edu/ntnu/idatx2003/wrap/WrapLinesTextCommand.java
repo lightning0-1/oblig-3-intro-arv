@@ -19,11 +19,11 @@ public class WrapLinesTextCommand extends WrapTextCommand {
 
     for (String line : lines) {
       if (!line.isEmpty()) {
-        wrappedText.append(opening).append(line).append(end).append(" ");
+        wrappedText.append(opening).append(line).append(end).append("\n");
       }
     }
 
-    if (wrappedText.length() > 0) {
+    if (!wrappedText.isEmpty()) {
       wrappedText.deleteCharAt(wrappedText.length() - 1);
     }
 
