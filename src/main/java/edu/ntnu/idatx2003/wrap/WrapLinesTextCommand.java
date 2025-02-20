@@ -15,7 +15,7 @@ public class WrapLinesTextCommand extends WrapTextCommand {
       return "";
     }
 
-    String[] lines = text.split("\n", -1); // Include trailing empty strings
+    String[] lines = text.split("\n"); // Include trailing empty strings
     StringBuilder wrappedText = new StringBuilder();
 
     for (int i = 0; i < lines.length; i++) {
