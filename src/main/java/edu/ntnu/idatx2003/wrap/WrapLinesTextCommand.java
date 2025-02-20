@@ -25,7 +25,7 @@ public class WrapLinesTextCommand extends WrapTextCommand {
       }
     }
 
-    // Remove the last newline character if it exists
+    // Remove the last newline character if it exists and is not part of the wrapped text
     if (wrappedText.length() > 0 && wrappedText.charAt(wrappedText.length() - 1) == '\n') {
       wrappedText.deleteCharAt(wrappedText.length() - 1);
     }
