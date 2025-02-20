@@ -11,7 +11,11 @@ public class WrapLinesTextCommand extends WrapTextCommand {
     if (text == null) {
       throw new IllegalArgumentException("Text cannot be null");
     }
-    String[] newText = text.split(".");
+    if (text.isEmpty()) {
+      return text;
+    }
+    String[] lines = text.split("\n");
+
     return opening + text + end;
   }
 }
