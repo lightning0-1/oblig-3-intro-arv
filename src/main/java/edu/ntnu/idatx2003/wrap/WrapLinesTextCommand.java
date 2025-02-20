@@ -23,7 +23,7 @@ public class WrapLinesTextCommand extends WrapTextCommand {
       }
     }
 
-    if (!wrappedText.isEmpty()) {
+    if (wrappedText.length() > 0) {
       wrappedText.deleteCharAt(wrappedText.length() - 1);
     }
 
