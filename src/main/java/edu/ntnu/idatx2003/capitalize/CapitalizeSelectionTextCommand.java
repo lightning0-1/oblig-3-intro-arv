@@ -13,6 +13,12 @@ public class CapitalizeSelectionTextCommand extends CapitalizeTextCommand {
 
   @Override
   public String execute(String text) {
+    if (text == null || selection == null) {
+      throw new IllegalArgumentException("Text and selection cannot be null");
+    }
+    if (selection.isEmpty()) {
+      return text;
+    }
     return text.replace(selection, selection.toUpperCase());
   }
 }
