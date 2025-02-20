@@ -14,21 +14,22 @@ public class WrapLinesTextCommand extends WrapTextCommand {
     if (text.isEmpty()) {
       return "";
     }
-    String[] lines = text.split("\n");
+    String[] lines = text.split("\n", -1); // Include trailing empty strings
     StringBuilder wrappedText = new StringBuilder();
 
     for (String line : lines) {
       if (!line.isEmpty()) {
-        wrappedText.append(opening).append(line).append(end).append(" ");
+        wrappedText.append(opening).append(line).append(end).append("\n");
       } else {
         wrappedText.append("\n");
       }
     }
 
-    if (wrappedText.length() > 0 && wrappedText.charAt(wrappedText.length() - 1) == ' ') {
+    // Remove the last newline character if it exists
+    if (wrappedText.length() > 0 && wrappedText.charAt(wrappedText.length() - 1) == '\n') {
       wrappedText.deleteCharAt(wrappedText.length() - 1);
     }
 
-    return wrappedText.toString().replace(" \n", "\n");
+    return wrappedText.toString();
   }
 }
