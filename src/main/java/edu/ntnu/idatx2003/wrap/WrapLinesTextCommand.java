@@ -20,13 +20,15 @@ public class WrapLinesTextCommand extends WrapTextCommand {
     for (String line : lines) {
       if (!line.isEmpty()) {
         wrappedText.append(opening).append(line).append(end).append(" ");
+      } else {
+        wrappedText.append("\n");
       }
     }
 
-    if (wrappedText.length() > 0) {
+    if (wrappedText.length() > 0 && wrappedText.charAt(wrappedText.length() - 1) == ' ') {
       wrappedText.deleteCharAt(wrappedText.length() - 1);
     }
 
-    return wrappedText.toString();
+    return wrappedText.toString().replace(" \n", "\n");
   }
 }
