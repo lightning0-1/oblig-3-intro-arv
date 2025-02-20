@@ -8,6 +8,10 @@ public class WrapLinesTextCommand extends WrapTextCommand {
 
   @Override
   public String execute(String text) {
+    if (text == null) {
+      throw new IllegalArgumentException("Text cannot be null");
+    }
+    String[] newText = text.split(".");
     return opening + text + end;
   }
 }
