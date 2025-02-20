@@ -21,6 +21,9 @@ public class WrapTextCommand implements TextCommand {
 
   @Override
   public String execute(String text) {
+    if (text == null) {
+      return null;
+    }
     return opening + text + end;
   }
 }
