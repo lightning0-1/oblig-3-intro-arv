@@ -19,7 +19,7 @@ public class WrapLinesTextCommand extends WrapTextCommand {
 
     for (String line : lines) {
       if (!line.isEmpty()) {
-        wrappedText.append(opening).append(line).append(end).append("\n");
+        wrappedText.append(opening).append(line).append(end).append(" ");
       }
     }
 
