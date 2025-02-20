@@ -12,10 +12,20 @@ public class WrapLinesTextCommand extends WrapTextCommand {
       throw new IllegalArgumentException("Text cannot be null");
     }
     if (text.isEmpty()) {
-      return text;
+      return opening + end;
     }
     String[] lines = text.split("\n");
+    StringBuilder wrappedText = new StringBuilder();
 
-    return opening + text + end;
+    for (String line : lines) {
+      wrappedText.append(opening).append(line).append(end).append("\n");
+    }
+
+    if (wrappedText.length() > 0) {
+      wrappedText.deleteCharAt(wrappedText.length() - 1);
+    }
+
+    return wrappedText.toString();
+
   }
 }
