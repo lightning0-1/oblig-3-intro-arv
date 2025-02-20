@@ -30,6 +30,11 @@ public class WrapLinesTextCommand extends WrapTextCommand {
       wrappedText.deleteCharAt(wrappedText.length() - 1);
     }
 
+    // Remove the last space character if it exists and is not part of the wrapped text
+    if (wrappedText.length() > 0 && wrappedText.charAt(wrappedText.length() - 1) == ' ') {
+      wrappedText.deleteCharAt(wrappedText.length() - 1);
+    }
+
     return wrappedText.toString();
   }
 }
