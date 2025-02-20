@@ -25,7 +25,7 @@ public class WrapTextCommand implements TextCommand {
       throw new IllegalArgumentException("Text cannot be null");
     }
     if (text.isEmpty()) {
-      throw new IllegalArgumentException("Text cannot be empty");
+        return text;
     }
     return opening + text + end;
   }
