@@ -19,6 +19,15 @@ public class CapitalizeSelectionTextCommand extends CapitalizeTextCommand {
     if (selection.isEmpty()) {
       return text;
     }
-    return text.replace(selection, selection.toUpperCase());
+    String[] words = selection.split(" ");
+    StringBuilder capitalizedSelection = new StringBuilder();
+    for (String word : words) {
+      if (!word.isEmpty()) {
+        capitalizedSelection.append(Character.toUpperCase(word.charAt(0)))
+                .append(word.substring(1).toLowerCase()).append(" ");
+      }
+    }
+    String capitalizedText = capitalizedSelection.toString().trim();
+    return text.replace(selection, capitalizedText);
   }
 }
