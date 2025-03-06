@@ -11,6 +11,11 @@ public class CapitalizeSelectionTextCommand extends CapitalizeTextCommand {
     return selection;
   }
 
+  /**
+   * Capitalizes the selection in the text.
+   * @param text
+   * @return
+   */
   @Override
   public String execute(String text) {
     if (text == null || selection == null) {
